@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Web五子棋</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header><h1>Web版五子棋</h1></header>
+
+    <section id="home" class="panel active">
+      <button id="quickStart">快速开始（人机）</button>
+      <button data-mode="ai">人机对战</button>
+      <button data-mode="pvp">双人对战</button>
+      <button id="openSettings">设置</button>
+      <button id="openStats">战绩</button>
+    </section>
+
+    <section id="game" class="panel">
+      <div class="status">
+        <span id="modeLabel"></span>
+        <span id="turnLabel"></span>
+        <span id="timerLabel">用时: 0s</span>
+      </div>
+      <canvas id="board" width="600" height="600" aria-label="棋盘"></canvas>
+      <div class="actions">
+        <button id="undoBtn">悔棋</button>
+        <button id="restartBtn">重开</button>
+        <button id="resignBtn">认输</button>
+        <button id="backHomeBtn">返回首页</button>
+      </div>
+    </section>
+
+    <section id="settings" class="panel">
+      <h2>设置</h2>
+      <label>音效 <input type="checkbox" id="soundToggle" checked /></label>
+      <label>主题
+        <select id="themeSelect">
+          <option value="light">浅色</option>
+          <option value="dark">深色</option>
+        </select>
+      </label>
+      <label>AI 难度
+        <select id="aiLevel">
+          <option value="easy">简单</option>
+          <option value="normal">普通</option>
+          <option value="hard">困难</option>
+        </select>
+      </label>
+      <label>先手
+        <select id="firstPlayer">
+          <option value="black">黑方先手</option>
+          <option value="white">白方先手</option>
+        </select>
+      </label>
+      <button class="backBtn">返回首页</button>
+    </section>
+
+    <section id="stats" class="panel">
+      <h2>本地战绩</h2>
+      <ul id="statsList"></ul>
+      <button id="clearStatsBtn">清空战绩</button>
+      <button class="backBtn">返回首页</button>
+    </section>
+  </main>
+
+  <dialog id="resultDialog">
+    <h3 id="resultTitle">对局结束</h3>
+    <p id="resultDetail"></p>
+    <button id="playAgainBtn">再来一局</button>
+    <button id="resultBackHomeBtn">返回首页</button>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
